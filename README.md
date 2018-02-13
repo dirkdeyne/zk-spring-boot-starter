@@ -4,7 +4,7 @@
 ## zk-spring-boot-starter
 `Spring Boot Starter` for getting started with `ZK`  
 
-## zkboot-demos
+## zk-spring-boot-demos
 - **zkboot-hello** : a basic _'Hello World'_ demo
 
 ## How to
