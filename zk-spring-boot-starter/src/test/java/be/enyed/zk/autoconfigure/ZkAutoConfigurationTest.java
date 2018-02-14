@@ -38,7 +38,6 @@ public class ZkAutoConfigurationTest {
             .andReturn();
  
     assertThat(result.getModelAndView().getViewName()).isEqualTo("test");
-    
     assertThat(result.getResponse().getForwardedUrl()).isEqualTo("/zkau/web/test.zul");
   }
 }

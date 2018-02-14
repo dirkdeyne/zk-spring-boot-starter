@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@ImportAutoConfiguration(classes= {ZkAutoConfiguration.class})
+@ImportAutoConfiguration(classes= {ZkAutoConfiguration.class,ZkWebConfiguration.class})
 public class TestApplication {
   
   public static void main(String[] args) throws Exception {
