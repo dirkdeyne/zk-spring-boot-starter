@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-be.enyed.zk.autoconfigure.ZkAutoConfiguration
+be.enyed.zk.autoconfigure.ZkAutoConfiguration,\
+be.enyed.zk.autoconfigure.ZkWebConfiguration,\
+be.enyed.zk.autoconfigure.HomePageConfiguration
