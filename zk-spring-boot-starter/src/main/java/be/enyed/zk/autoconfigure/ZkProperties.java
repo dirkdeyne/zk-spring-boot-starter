@@ -10,29 +10,47 @@ import org.springframework.validation.annotation.Validated;
 public class ZkProperties {
   
   /**
-   * default value: '/zkau/*'
    * You probably should not change this value  
    */
   @Pattern(regexp = "/[a-z]+/\\*")
   private String updateUri = "/zkau/*";
 
   /**
-   * default value: '/richlet/*'
+   * @TODO needs additional configuration
    */
-  @Pattern(regexp = "/([a-z]+/)+\\*")
+  @Pattern(regexp = "/([a-z]+/)+\\*", message="failed pattern match, must match /([a-z]+/)+\\*")
   private String richletUri = "/richlet/*";
   
   /**
-   * default value is '/zkau/web/'
+   * Register an @InternalResourceViewResolver when enabled. 
+   * Enabled by default, the prefix and suffix are configurable 
+   * via zk.viewresolver.prefix and zk.viewresolver.suffix
    */
-  @Pattern(regexp = "(/)||(/([a-z]+/)+)")
+  private Boolean viewreloverEnabled = true;
+  
+  /**
+   * Prefix used by viewresolver
+   */
+  @Pattern(regexp = "(/)||(/([a-z]+/)+)", message="should start and end with a / like /zkau/web/")
   private String viewresolverPrefix = "/zkau/web/";
   
   /**
-   * default value is '.zul'
+   * Suffix used by viewresolver
    */
+  @Pattern(regexp = "(\\.zul)||(\\.zhtml)", message="should be .zul or .zhtml")
   private String viewresolverSuffix = ".zul";
   
+  /**
+   * No value set, so you need to provide it yourself.
+   * When set a @Controller will map a root requests to your homepage.
+   * But you are allowed to use the spring-mvc mechanism 
+   * to redirect ('redirect:/hompage') or forward ('forward:/homepage')
+   */
+  private String homepage;  
+  
+  /**
+   * Disable/Enable Richlets
+   */
   private Boolean richletEnabled = false;
 
   public String getUpdateUri() {
@@ -75,4 +93,19 @@ public class ZkProperties {
     this.richletEnabled = richletEnabled;
   }
 
+  public String getHomepage() {
+    return homepage;
+  }
+  
+  public void setHomepage(String homepage) {
+    this.homepage = homepage;
+  }
+  
+  public Boolean getViewreloverEnabled() {
+    return viewreloverEnabled;
+  }
+  
+  public void setViewreloverEnabled(Boolean viewreloverEnabled) {
+    this.viewreloverEnabled = viewreloverEnabled;
+  }
 }
