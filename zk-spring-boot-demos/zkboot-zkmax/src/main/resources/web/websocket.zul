@@ -1,0 +1,35 @@
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+	  xsi:schemaLocation="
+      http://www.zkoss.org/2005/zul https://www.zkoss.org/2005/zul/zul.xsd
+      http://www.w3.org/1999/xhtml https://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+	
+	<style>
+		.blue{
+			color : #3C5873;
+		}
+		.small{
+			font-size : .7em;
+		}
+	</style>
+	
+	<hlayout>
+			<space hflex="1" />
+			<h:h1 class="blue">Hello Websockets.</h:h1>
+			<space hflex="1" />
+	</hlayout>
+	<vlayout spacing="50px" >
+		<space/>
+		<div apply="be.enyed.zkboot.websocket.WebSocketDemo" >
+			<charts id="chart" type="spline" title="WebSocket Demo (made with ZK Charts)"/>
+		</div>
+		<space/>
+		<hlayout>
+			<space hflex="2" />
+			<label sclass="blue small" value="I borrowed all off this :) The original code can be found "/>
+			<a sclass="small" hflex="1" label="here" href="https://github.com/zkoss-demo/zkwebsocket-demo" target="_"/>
+		</hlayout>
+  </vlayout>
+   
+</zk>      
