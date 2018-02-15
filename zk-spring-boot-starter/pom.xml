@@ -42,6 +42,12 @@
 			<artifactId>zhtml</artifactId>
 			<version>${zk-version}</version>
 		</dependency>
+				<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkmax</artifactId>
+			<version>${zk-version}-Eval</version>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
