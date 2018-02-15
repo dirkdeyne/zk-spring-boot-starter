@@ -7,7 +7,7 @@
 ## Features _(work in progress)_
 - [x] setup ZK CE
 - [x] enable spring-mvc
-- [ ] configurable home-page
+- [x] configurable home-page
 - [ ] setup ZK EE _(when [zkmax](https://www.zkoss.org/download/zk?ee) is on the classpath)_
 - [ ] ....
 
