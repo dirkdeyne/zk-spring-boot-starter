@@ -8,7 +8,7 @@
 - [x] setup ZK CE
 - [x] enable spring-mvc
 - [x] configurable home-page
-- [ ] setup ZK EE _(when [zkmax](https://www.zkoss.org/download/zk?ee) is on the classpath)_
+- [x] setup ZK EE _(when [zkmax](https://www.zkoss.org/download/zk?ee) is on the classpath)_
 - [ ] ....
 
 ## References (Build with):
