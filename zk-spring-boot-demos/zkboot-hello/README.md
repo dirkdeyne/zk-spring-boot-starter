@@ -9,4 +9,5 @@ _in order to run the demo's you should have [zk-spring-boot-starter](https://git
 
 ## What do we learn?
 by simply providing our applications home-page `zk.homepage = hello` in [application.properties](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-hello/src/main/resources/application.properties) we are good to GO.
-It as easy as that! Isn't this cool :)
+
+It is really as easy as that! Isn't that cool :)
