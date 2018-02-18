@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -32,6 +33,13 @@ public class ZkWebConfiguration implements WebMvcConfigurer {
     logger.debug("ViewControllerRegistry map view controller to "+updateUri);
   }
   /**/
+  
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    WebMvcConfigurer.super.addResourceHandlers(registry);
+    registry.addResourceHandler("/web/**").addResourceLocations("classpath:/web/");
+
+  }
   
   @Override
   public void configureViewResolvers(ViewResolverRegistry registry) {

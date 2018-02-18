@@ -48,6 +48,8 @@ public class ZkProperties {
    */
   private String homepage;  
   
+  private Boolean viewAutomapping = false;
+  
   /**
    * Disable/Enable Richlets
    */
@@ -107,5 +109,13 @@ public class ZkProperties {
   
   public void setViewreloverEnabled(Boolean viewreloverEnabled) {
     this.viewreloverEnabled = viewreloverEnabled;
+  }
+  
+  public Boolean getViewAutomapping() {
+    return viewAutomapping;
+  }
+  
+  public void setViewAutomapping(Boolean viewAutomapping) {
+    this.viewAutomapping = viewAutomapping;
   }
 }

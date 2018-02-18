@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @ConditionalOnProperty(prefix="zk", name="homepage")
 @EnableConfigurationProperties({ZkProperties.class})
-public class HomePageConfiguration {
+public class HomePageControllerConfiguration {
   
-  private static final Logger logger = LoggerFactory.getLogger(HomePageConfiguration.class);
+  private static final Logger logger = LoggerFactory.getLogger(HomePageControllerConfiguration.class);
   
 
   private final String homepage;
   
-  public HomePageConfiguration(ZkProperties zkProperties) {
+  public HomePageControllerConfiguration(ZkProperties zkProperties) {
     homepage = zkProperties.getHomepage();
     logger.debug("HomePageController created with {} as your homepage.", homepage);
   }
