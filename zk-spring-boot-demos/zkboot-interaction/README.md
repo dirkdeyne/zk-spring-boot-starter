@@ -49,7 +49,7 @@ when we use `Composition`, import `css`-file or want to `include` other resource
 
 ##### Communication between a Spring-`@Controller` and a ZK-`viewmodel`
 
-Basically using [zk-spring-boot-starter](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-starter) does not change the way `spring-mvc` en `ZK`...
+Basically using [zk-spring-boot-starter](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-starter) does not change the way `spring-mvc` and `ZK` work...
 
 Spring: use your `Controller` as if  ZK isn't there :wink: [Spring mvc-controller](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-controller)
 
