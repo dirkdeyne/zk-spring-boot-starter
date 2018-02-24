@@ -10,21 +10,36 @@ _in order to run the demo's you should have [zk-spring-boot-starter](https://git
 ## What do we learn?
 Look at the interaction between Spring MVC and ZK MVVM
 
-* linking a menuitem to a view
+#####linking a menuitem to a view or controller
 
 ```xml
 	<menubar viewModel="@id('vm-common')  @init('be.enyed.viewmodel.CommonViewmodel')">
 		<menuitem label="home" href="/" />
+		<menuitem label="hello" href="view/hello" />
 		<menuitem label="people" href="/people" />
 		<menuitem label="BE people" href="/people/BELGIUM" />
 		<menuitem label="about" onClick="@command('showAbout')" />
 	</menubar>
 ```
  
-:one: `<menuitem label="home" href="/" />` home points the root and because we have set our [home-page]() it will show [welcome](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/resources/web/welcome.zul)
+- `home` points the root and because we have set our [home-page]() it will show [welcome](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/resources/web/welcome.zul)
 
-:two: `<menuitem label="people" href="/people" />` people points to [@GetMapping("/people")](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/java/be/enyed/zkboot/controller/DemoController.java) and wil open [interaction/people](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/resources/web/interaction/people.zul)
+- `hello` mappings starting with _view/_ points to the auto-view so it will open [view/hello](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/resources/web/hello.zul), note that auto-view needs to be enabled `zk.view-automapping = true` 
 
-:three: `<menuitem label="BE people" href="/people/BELGIUM" />` people points to [@GetMapping("/people/{country}")](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/java/be/enyed/zkboot/controller/DemoController.java) and wil open [interaction/people](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/resources/web/interaction/people.zul)
+- `people` points to [@GetMapping("/people")](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/java/be/enyed/zkboot/controller/DemoController.java) and wil open [interaction/people](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/resources/web/interaction/people.zul)
 
-:four: `<menuitem label="about" onClick="@command('showAbout')" />` triggers a command in our viewmodel [CommonViewmodel](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/java/be/enyed/zkboot/viewmodel/CommonViewmodel.java) 
+- `BE people` points to [@GetMapping("/people/{country}")](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/java/be/enyed/zkboot/controller/DemoController.java) and wil open [interaction/people](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/resources/web/interaction/people.zul)
+
+- `about` triggers a command in our viewmodel [CommonViewmodel](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/java/be/enyed/zkboot/viewmodel/CommonViewmodel.java)
+
+#####linking a resource in a other page
+
+```xml
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="~./common/page_template.zul"?>
+<?style href="~./css/custom-style.css" type="text/css" ?>
+<zk>
+	<include src="~./common/menu.zul" />
+</zk>	
+```
+when we use `Composition`, import `css`-file or want to `include` other resources, we just use ZK's default way of loading resources from the class-path.
+ 

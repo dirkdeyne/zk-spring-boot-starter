@@ -1,33 +1,10 @@
-  <zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zkoss.org/2005/zul"
+<?style href="~./css/custom-style.css" type="text/css" ?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zkoss.org/2005/zul"
 			xmlns:h="http://www.w3.org/1999/xhtml"
 			xsi:schemaLocation="
 		      http://www.zkoss.org/2005/zul https://www.zkoss.org/2005/zul/zul.xsd
 		      http://www.w3.org/1999/xhtml https://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
-  
-   <style>
-      .page {
-         background-color: #FAFAFFA;
-         height:100%;
-         overflow:hidden;
-      }
-      .container {
-         background-color: #FEFEFE;
-         margin: 0 auto;
-   
-         min-width: 1265px;
-         width: 98%;
-   
-         min-height:99%;
-         height:auto !important;
-         height:800px;
-   
-         border: 1px solid #EEEEEE;
-         overflow: auto;
-      }
-      .content {
-         padding: 0px 3px;
-      }
-   </style>
+ 
    <div sclass="page">
       <div sclass="container">
          <vlayout>
