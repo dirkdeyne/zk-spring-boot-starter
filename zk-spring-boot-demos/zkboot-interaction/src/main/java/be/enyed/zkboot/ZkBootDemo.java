@@ -13,8 +13,4 @@ public class ZkBootDemo {
     SpringApplication.run(ZkBootDemo.class, args);
   }
   
-  @GetMapping("/todo")
-  public String todo() {
-    return "todo/todo";
-  }
 }

@@ -1,4 +1,4 @@
-<?page title="-- People --" contentType="text/html;charset=UTF-8"?>
+<?page title="People -- " contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="~./common/page_template.zul"?>
 <zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zkoss.org/2005/zul"
 	xmlns:h="http://www.w3.org/1999/xhtml"

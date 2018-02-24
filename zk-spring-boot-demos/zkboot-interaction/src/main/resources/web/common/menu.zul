@@ -7,6 +7,7 @@
 
 	<menubar viewModel="@id('vm-common')  @init('be.enyed.viewmodel.CommonViewmodel')">
 		<menuitem label="home" href="/" />
+		<menuitem label="hello" href="view/hello" />
 		<menuitem label="people" href="/people" />
 		<menuitem label="BE people" href="/people/BELGIUM" />
 		<menuitem label="about" onClick="@command('showAbout')" />
