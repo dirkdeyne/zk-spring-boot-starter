@@ -14,6 +14,7 @@
 
 ## zk-spring-boot-demos
 - **[zkboot-hello](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-demos/zkboot-hello)**: a basic _'Hello World'_ demo
+- **[zkboot-zkmax](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-demos/zkboot-zkmax)**: a websockets-demo
 
 ## References (Build with):
 - [ZK](https://www.zkoss.org) - ZK framework
