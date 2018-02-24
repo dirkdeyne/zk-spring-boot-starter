@@ -17,3 +17,6 @@ buildNumber.properties
 .settings
 .project
 .classpath
+
+# ignore company-demo for now 
+/zkboot-company/*
