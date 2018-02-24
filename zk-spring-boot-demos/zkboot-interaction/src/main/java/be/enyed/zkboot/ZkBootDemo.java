@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootApplication
-@Controller
 public class ZkBootDemo {
   
   public static void main(String[] args) throws Exception {
