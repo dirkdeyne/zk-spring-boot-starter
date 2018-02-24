@@ -3,14 +3,14 @@ a closer look at the interaction between spring and ZK
 
 _in order to run the demo's you should have [zk-spring-boot-starter](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-starter)_
 
-## Run this demos
+## Run this demo
 * start [ZkBootDemo](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-hello/src/main/java/be/enyed/zkboot/ZkBootDemo.java) as a spring boot application.
 * browse to [http://localhost:8080](http://localhost:8080)
 
 ## What do we learn?
 Look at the interaction between Spring MVC and ZK MVVM
 
-##### linking a menuitem to a view or controller
+##### Linking a menuitem to a view or controller
 
 ```xml
 	<menubar viewModel="@id('vm-common')  @init('be.enyed.viewmodel.CommonViewmodel')">
@@ -34,7 +34,7 @@ Look at the interaction between Spring MVC and ZK MVVM
 
 ----
 
-##### linking a resource in a other page
+##### Linking a resource in a other page
 
 ```xml
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="~./common/page_template.zul"?>
@@ -47,7 +47,7 @@ when we use `Composition`, import `css`-file or want to `include` other resource
 
 ----
 
-##### communication between a Spring-`@Controller` and a ZK-`viewmodel`
+##### Communication between a Spring-`@Controller` and a ZK-`viewmodel`
 
 Basically using [zk-spring-boot-starter](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-starter) does not change the way `spring-mvc` en `ZK`...
 
@@ -73,7 +73,7 @@ public class DemoController {
 
 ```
 
-ZK: use your `Viewmodel` as if Spring isn't there :wink: [ZK-MVVM](http://books.zkoss.org/zk-mvvm-book/8.0/syntax/executionparam.html)
+ZK: use your `ViewModel` as if Spring isn't there :wink: [ZK-MVVM](http://books.zkoss.org/zk-mvvm-book/8.0/syntax/executionparam.html)
 
 ```java
 public class PeopleViewmodel {
