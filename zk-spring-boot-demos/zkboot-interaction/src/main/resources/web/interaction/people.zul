@@ -1,0 +1,35 @@
+<?page title="People -- " contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="~./common/page_template.zul"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xsi:schemaLocation="
+      http://www.zkoss.org/2005/zul https://www.zkoss.org/2005/zul/zul.xsd
+      http://www.w3.org/1999/xhtml https://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+	
+	<div self="@{define(page)}" viewModel="@id('vm')  @init('be.enyed.zkboot.viewmodel.PeopleViewmodel')" >
+		<vlayout>
+			Select a (other) country and press button to open a redirect to filtered page. 
+			<hlayout>
+				<label value="Country:"/> <listbox mold="select" model="@load(vm.countries)" selectedItem="@bind(vm.country)" />
+				<space/>
+				<button label="filter by country" href="@load('/people/'.concat(vm.country))"/>
+			</hlayout>
+			<space/>
+			<listbox mold="paging" model="@load(vm.people)">
+				<listhead>
+					<listheader label="Country" sort="sort(country)"/>
+					<listheader label="Lastname" sort="sort(lastname)"/>
+					<listheader label="Firstname" sort="sort(firstname)"/>
+				</listhead>
+				<template name="model" var="pers">
+					<listitem>
+						<listcell label="@load(pers.country)"/>
+						<listcell label="@load(pers.lastname)"/>
+						<listcell label="@load(pers.firstname)"/>
+					</listitem>
+				</template>
+			</listbox>
+		</vlayout>
+	</div>
+	
+</zk>

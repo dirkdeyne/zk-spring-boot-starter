@@ -10,7 +10,9 @@ import org.springframework.validation.annotation.Validated;
 public class ZkProperties {
   
   /**
-   * You probably should not change this value  
+   * You probably should not change this value.
+   * 
+   * Default value /zkau/*
    */
   @Pattern(regexp = "/[a-z]+/\\*")
   private String updateUri = "/zkau/*";
@@ -25,17 +27,23 @@ public class ZkProperties {
    * Register an @InternalResourceViewResolver when enabled. 
    * Enabled by default, the prefix and suffix are configurable 
    * via zk.viewresolver.prefix and zk.viewresolver.suffix
+   * 
+   * Default value true
    */
   private Boolean viewreloverEnabled = true;
   
   /**
-   * Prefix used by viewresolver
+   * Prefix used by viewresolver.
+   * 
+   * Default value /zkau/web/
    */
   @Pattern(regexp = "(/)||(/([a-z]+/)+)", message="should start and end with a / like /zkau/web/")
   private String viewresolverPrefix = "/zkau/web/";
   
   /**
-   * Suffix used by viewresolver
+   * Suffix used by viewresolver.
+   * 
+   * Default value .zul
    */
   @Pattern(regexp = "(\\.zul)||(\\.zhtml)", message="should be .zul or .zhtml")
   private String viewresolverSuffix = ".zul";
@@ -49,7 +57,17 @@ public class ZkProperties {
   private String homepage;  
   
   /**
-   * Disable/Enable Richlets
+   * Enable auto-mapping URI to a view
+   * When enabled then use view/your-zul-page to trigger auto-mapping.
+   * 
+   * Default value false
+   */
+  private Boolean viewAutomapping = false;
+  
+  /**
+   * Disable/Enable Richlets.
+   * 
+   * Default value false
    */
   private Boolean richletEnabled = false;
 
@@ -107,5 +125,13 @@ public class ZkProperties {
   
   public void setViewreloverEnabled(Boolean viewreloverEnabled) {
     this.viewreloverEnabled = viewreloverEnabled;
+  }
+  
+  public Boolean getViewAutomapping() {
+    return viewAutomapping;
+  }
+  
+  public void setViewAutomapping(Boolean viewAutomapping) {
+    this.viewAutomapping = viewAutomapping;
   }
 }

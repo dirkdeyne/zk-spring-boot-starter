@@ -7,8 +7,9 @@
 ## Features _(work in progress)_
 - [x] setup ZK CE
 - [x] enable spring-mvc
-- [x] configurable home-page
-- [x] setup ZK EE _(when [zkmax](https://www.zkoss.org/download/zk?ee) is on the classpath)_
+- [x] setup ZK EE ([zkmax](https://www.zkoss.org/download/zk?ee) is on the class-path)
+- [x] configurable home-page (`zk.homepage = your-home-page`) 
+- [x] auto view controller (when `zk.view-automapping = true` you can use `view/your-zul-name` )
 - [ ] ....
 
 ## References (Build with):
