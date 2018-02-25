@@ -1,4 +1,4 @@
-package be.enyed.viewmodel;
+package be.enyed.zkboot.viewmodel;
 
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.zk.ui.Executions;
