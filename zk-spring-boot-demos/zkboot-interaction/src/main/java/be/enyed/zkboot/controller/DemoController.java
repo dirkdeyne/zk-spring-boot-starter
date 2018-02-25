@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import be.enyed.zkboot.Country;
+import be.enyed.zkboot.model.Country;
 import be.enyed.zkboot.service.DemoService;
 
 @Controller

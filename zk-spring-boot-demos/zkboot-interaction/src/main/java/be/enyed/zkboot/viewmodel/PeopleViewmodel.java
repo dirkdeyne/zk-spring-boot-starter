@@ -7,8 +7,8 @@ import org.zkoss.bind.annotation.ExecutionParam;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zul.ListModelList;
 
-import be.enyed.zkboot.Country;
-import be.enyed.zkboot.Person;
+import be.enyed.zkboot.model.Country;
+import be.enyed.zkboot.model.Person;
 
 public class PeopleViewmodel {
   

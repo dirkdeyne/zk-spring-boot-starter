@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-import be.enyed.zkboot.Country;
-import be.enyed.zkboot.Person;
+import be.enyed.zkboot.model.Country;
+import be.enyed.zkboot.model.Person;
 
 /**
  * Just for demo purpose: lets serve some data :)  
