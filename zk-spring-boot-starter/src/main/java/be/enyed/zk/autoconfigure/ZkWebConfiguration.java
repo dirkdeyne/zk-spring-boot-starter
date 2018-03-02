@@ -5,8 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -25,22 +23,6 @@ public class ZkWebConfiguration implements WebMvcConfigurer {
     logger.debug("ZkWebConfiguration created.");
   }
   
-  /**/
-  @Override
-  public void addViewControllers(ViewControllerRegistry registry) {
-    String updateUri = zkProperties.getUpdateUri();
-    registry.addViewController(updateUri);
-    logger.debug("ViewControllerRegistry map view controller to "+updateUri);
-  }
-  /**/
-  
-  @Override
-  public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    WebMvcConfigurer.super.addResourceHandlers(registry);
-    registry.addResourceHandler("/web/**").addResourceLocations("classpath:/web/");
-
-  }
-  
   @Override
   public void configureViewResolvers(ViewResolverRegistry registry) {
     registry.viewResolver(zkViewResolver());
@@ -49,13 +31,15 @@ public class ZkWebConfiguration implements WebMvcConfigurer {
   protected ViewResolver zkViewResolver() {
     String prefix = zkProperties.getViewresolverPrefix();
     String suffix = zkProperties.getViewresolverSuffix();
-    //InternalResourceViewResolver resolver = new InternalResourceViewResolver(prefix, suffix);
     InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-    
     resolver.setPrefix(prefix);
     resolver.setSuffix(suffix);
     resolver.setOrder(InternalResourceViewResolver.LOWEST_PRECEDENCE);
-    logger.debug("InternalResourceViewResolver to {}your_view_name{}",prefix,suffix);
+    logger.debug(String.format("InternalResourceViewResolver to %syour_view_name%s, "
+        + "example using default settings: "
+        + "viewname 'common/about' will be resolved to '/zkau/web/common/about.zul' "
+        + "that will look for the file /src/main/resources/web/common/about.zul"
+        ,prefix,suffix,suffix));
     return resolver;
   }
   
