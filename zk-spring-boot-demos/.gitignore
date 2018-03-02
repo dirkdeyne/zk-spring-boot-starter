@@ -18,5 +18,6 @@ buildNumber.properties
 .project
 .classpath
 
-# ignore company-demo for now 
+# ignore some demos for now 
 /zkboot-company/*
+/zkboot-todo/*
