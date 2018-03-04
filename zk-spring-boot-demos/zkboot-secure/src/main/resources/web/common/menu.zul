@@ -9,13 +9,8 @@
 		<menuitem label="home" href="/" />
 		<menuitem label="secured page" href="/secure" />
 		<menuitem label="admin page" href="/admin" />
-		<menu label="popups">
-			<menupopup>
-				<menuitem label="about cmd" onClick="@command('showAbout')" />
-				<menuitem label="about view" href="/view/common/about" />
-				<menuitem label="welcome" href="/view/welcome" />
-			</menupopup>
-		</menu>
+		<menuitem label="about" onClick="@command('showAbout')" />
+		<menuitem label="logout" href="/logout"  />
 	</menubar>
 	
 </zk>

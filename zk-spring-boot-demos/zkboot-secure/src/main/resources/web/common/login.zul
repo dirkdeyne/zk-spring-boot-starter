@@ -3,9 +3,33 @@
 	xsi:schemaLocation="
       http://www.zkoss.org/2005/zul https://www.zkoss.org/2005/zul/zul.xsd
       http://www.w3.org/1999/xhtml https://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
-	
-	<window title="About" closable="false" mode="highlighted">
-			login
-	</window>
-	
+
+	<div style="margin: 150px 250px;">
+
+		<h:form action="login" method="POST">
+			<grid width="444px">
+				<columns>
+					<column width="160px" />
+					<column width="280px" />
+				</columns>	
+				<rows>
+					<row>
+						<space/>
+						<label style="color: #0093f9; font-size:1.2em;" value="LOGIN"/>
+					</row>
+					<row>	
+						<label value="User :"/>
+						<textbox name="username" placeholder="user"/></row>
+					<row> 
+						<label value="Password :"/>
+						<textbox type="password" name="password" placeholder="password"/> </row>
+					<row>
+						<space/>
+						<hlayout><button type="reset" label="Reset" /> <button type="submit" label="Submit" /></hlayout>
+				  </row>
+				</rows>
+			</grid>
+		</h:form>
+		
+	</div>
 </zk>
