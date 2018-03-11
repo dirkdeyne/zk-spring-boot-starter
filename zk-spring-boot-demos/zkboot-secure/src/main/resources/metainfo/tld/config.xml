@@ -1,0 +1,7 @@
+<config>
+    <config-name>securityAccess</config-name> <!-- required since ZK 8 -->
+    <taglib>
+        <taglib-uri>http://security.access</taglib-uri>
+        <taglib-location>/metainfo/tld/securityAccess.tld</taglib-location>
+    </taglib>
+</config>
