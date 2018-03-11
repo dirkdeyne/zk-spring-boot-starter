@@ -8,7 +8,54 @@
 	
 	<div self="@{define(page)}" >
 		
-		Secured
+		Secured Page, hello <label value="${sec:getPrincipal()}" tooltiptext="${sec:getRoles()}"/>!
+		
+		<space/>
+		
+		<grid width="600px">
+			<columns>
+				<column hflex="3" />
+				<column hflex="1" />
+			</columns>
+			<rows>
+				<row>
+					<label value="Principal name" />
+					<label value="${sec:getPrincipal()}"/>	
+				</row>
+				<row>
+					<label value="Assigned roles" />
+					<label value="${sec:getRoles()}"/>	
+				</row>
+				<row>
+					<label value="Are you a ANYNOMOUS" />
+					<checkbox checked="${sec:isAnonymous()}"/>	
+				</row>
+				<row>
+					<label value="Are you a USER?" />
+					<checkbox checked="${sec:hasRole('ROLE_USER')}" />	
+				</row>
+				<row>
+					<label value="Are you ADMIN?" />
+					<checkbox checked="${sec:hasRole('ROLE_ADMIN')}"/>	
+				</row>
+				<row>
+					<label value="USER and ADMIN?" />
+					<checkbox checked="${sec:hasAllOfRoles('ROLE_USER,ROLE_ADMIN')}"/>
+				</row>
+				<row>
+					<label value="USER or ANYNOMOUS" />
+					<checkbox checked="${sec:hasAnyOfRoles('ROLE_ANONYMOUS,ROLE_USER')}"/>
+				</row>
+				<row>
+					<label value="You cannot be ADMIN" />
+					<checkbox checked="${sec:hasNoneOfRoles('ROLE_ADMIN')}"/>
+				</row>
+				<row>
+					<label value="You cannot be ANYNOMOUS or ADMIN" />
+					<checkbox checked="${sec:hasNoneOfRoles('ROLE_ANONYMOUS,ROLE_ADMIN')}"/>
+				</row>
+			</rows>
+		</grid>
 		
 	</div>
 	
