@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+.page {
+   background-color: #FAFAFFA;
+   height:100%;
+   overflow:hidden;
+}
+.container {
+   background-color: #FEFEFE;
+   margin: 0 auto;
+
+   min-width: 1265px;
+   width: 98%;
+
+   min-height:99%;
+   height:auto !important;
+   height:800px;
+
+   border: 1px solid #EEEEEE;
+   overflow: auto;
+}
+.content {
+   padding: 0px 3px;
+}

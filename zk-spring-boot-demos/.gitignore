@@ -21,4 +21,3 @@ buildNumber.properties
 # ignore some demos for now
 /zkboot-company/*
 /zkboot-todo/*
-/zkboot-secure/*

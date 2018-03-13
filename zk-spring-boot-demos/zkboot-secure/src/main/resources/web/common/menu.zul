@@ -1,0 +1,18 @@
+<?taglib uri="http://security.access" prefix="sec"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xsi:schemaLocation="
+      http://www.zkoss.org/2005/zul https://www.zkoss.org/2005/zul/zul.xsd
+      http://www.w3.org/1999/xhtml https://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+
+	<menubar viewModel="@id('vm-common')  @init('be.enyed.zkboot.viewmodel.CommonViewmodel')">
+		<menuitem label="home" href="/" />
+		<menuitem label="secured page" href="/secure" />
+		<menuitem if="${sec:hasRole('ROLE_ADMIN')}" label="admin page" href="/admin" />
+		<menuitem label="about" onClick="@command('showAbout')" />
+		<menuitem if="${sec:hasRole('ROLE_USER, ROLE_ADMIN')}" label="logout" href="/logout"  />
+		<menuitem if="${sec:isAnonymous()}" label="login" href="/login"  />
+	</menubar>
+	
+</zk>

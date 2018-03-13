@@ -1,0 +1,66 @@
+<taglib>
+    <function>
+        <name>isAuthenticated</name>
+        <function-class>be.enyed.zk.security.SecurityAccess</function-class>
+        <function-signature>java.lang.Boolean isAuthenticated()</function-signature>
+        <description>
+					Is the user authenticated
+        </description>
+    </function>
+    <function>
+        <name>isAnonymous</name>
+        <function-class>be.enyed.zk.security.SecurityAccess</function-class>
+        <function-signature>java.lang.Boolean isAnonymous()</function-signature>
+        <description>
+					Is the user anonymously authenticated
+        </description>
+    </function>
+    <function>
+        <name>getPrincipal</name>
+        <function-class>be.enyed.zk.security.SecurityAccess</function-class>
+        <function-signature>java.lang.Boolean getPrincipal()</function-signature>
+        <description>
+					The name of the principal or "UNKNOWN"
+        </description>
+    </function>
+    <function>
+        <name>getRoles</name>
+        <function-class>be.enyed.zk.security.SecurityAccess</function-class>
+        <function-signature>java.util.List getRoles()</function-signature>
+        <description>
+					List of role-names
+        </description>
+    </function>
+    <function>
+        <name>hasRole</name>
+        <function-class>be.enyed.zk.security.SecurityAccess</function-class>
+        <function-signature>java.lang.Boolean hasRole(java.lang.String role)</function-signature>
+        <description>
+					Check if the user has a certain role
+        </description>
+    </function>
+    <function>
+        <name>hasAnyOfRoles</name>
+        <function-class>be.enyed.zk.security.SecurityAccess</function-class>
+        <function-signature>java.lang.Boolean hasAnyOfRoles(java.lang.String role)</function-signature>
+        <description>
+					Check if the user has any of roles
+        </description>
+    </function>
+    <function>
+        <name>hasAllOfRoles</name>
+        <function-class>be.enyed.zk.security.SecurityAccess</function-class>
+        <function-signature>java.lang.Boolean hasAllOfRoles(java.lang.String role)</function-signature>
+        <description>
+					Check if the user has all of roles
+        </description>
+    </function>
+		<function>
+        <name>hasNoneOfRoles</name>
+        <function-class>be.enyed.zk.security.SecurityAccess</function-class>
+        <function-signature>java.lang.Boolean hasNoneOfRoles(java.lang.String role)</function-signature>
+        <description>
+					Check if the user has none of roles
+        </description>
+    </function>          
+</taglib>
