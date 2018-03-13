@@ -13,7 +13,7 @@
   <properties>
     <java.version>1.8</java.version>
     <zkboot-starter.version>1.0.0-SNAPSHOT</zkboot-starter.version>
-    <zk.version>8.5.0-Eval</zk.version>
+    <zk.version>8.5.1-Eval</zk.version>
     <zkcharts.version>3.0.0-Eval</zkcharts.version>
   </properties>
 
