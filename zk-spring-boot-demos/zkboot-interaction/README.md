@@ -4,7 +4,7 @@ a closer look at the interaction between spring and ZK
 _in order to run the demo's you should have [zk-spring-boot-starter](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-starter)_
 
 ## Run this demo
-* start [ZkBootDemo](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-hello/src/main/java/be/enyed/zkboot/ZkBootDemo.java) as a spring boot application.
+* start [ZkBootDemo](https://github.com/dirkdeyne/zk-spring-boot-starter/blob/master/zk-spring-boot-demos/zkboot-interaction/src/main/java/be/enyed/zkboot/ZkBootDemo.java) as a spring boot application.
 * browse to [http://localhost:8080](http://localhost:8080)
 
 ## What do we learn?
