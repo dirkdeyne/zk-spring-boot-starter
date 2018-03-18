@@ -11,3 +11,4 @@ start the `ZkBootDemo` as a spring boot application.
 - **[zkboot-zkmax](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-demos/zkboot-zkmax)**: ZKEE users can also profit from using [zk-spring-boot-starter](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-starter): have a look at our websockets-demo 
 - **[zkboot-interaction](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-demos/zkboot-interaction)**: wonder how we interact between ZK and Spring? Easy, have a look...
 - **[zkboot-secure](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-demos/zkboot-secure)**: can we use spring-security?
+- **[zkboot-webapp](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-demos/zkboot-webapp)**: classic war-applic
