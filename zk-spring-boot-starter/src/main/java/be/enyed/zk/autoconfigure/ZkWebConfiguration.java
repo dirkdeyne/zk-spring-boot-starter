@@ -35,11 +35,10 @@ public class ZkWebConfiguration implements WebMvcConfigurer {
     resolver.setPrefix(prefix);
     resolver.setSuffix(suffix);
     resolver.setOrder(InternalResourceViewResolver.LOWEST_PRECEDENCE);
-    logger.debug(String.format("InternalResourceViewResolver to %syour_view_name%s, "
-        + "example using default settings: "
-        + "viewname 'common/about' will be resolved to '/zkau/web/common/about.zul' "
-        + "that will look for the file /src/main/resources/web/common/about.zul"
-        ,prefix,suffix,suffix));
+    logger.info(String.format("InternalResourceViewResolver to %syour_view_name%s, "
+        + "so a viewname 'common/about' will be resolved to '%scommon/about%s' "
+        + "and we look for the file %scommon/about%s"
+        ,prefix, suffix, prefix, suffix, zkProperties.getViewresolverPrefix(), suffix));
     return resolver;
   }
   
