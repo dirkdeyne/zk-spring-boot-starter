@@ -1,5 +1,5 @@
 # zkboot-webapp
-let us create a war-file so we can deploy it on our favorite web-server
+let us create a war-file so we can deploy it on our favorite web-server.
 
 _in order to run the demo's you should have [zk-spring-boot-starter](https://github.com/dirkdeyne/zk-spring-boot-starter/tree/master/zk-spring-boot-starter)_
 
