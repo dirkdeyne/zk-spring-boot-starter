@@ -11,6 +11,6 @@ _in order to run the demo's you should have [zk-spring-boot-starter](https://git
 * ``zk-spring-boot-starter`` does not intervene when we want to make a war.
 
 ## Where to look @
-* pom-file where ``packaging`` is **war**
+* pom-file where ``packaging`` is **war** and ``tomcat``-dependency set as **provided**
 * application.properties where we set ``zk.config`` to **war**
 * ZkBootDemo extends **SpringBootServletInitializer** and overrides **configure(SpringApplicationBuilder builder)**
