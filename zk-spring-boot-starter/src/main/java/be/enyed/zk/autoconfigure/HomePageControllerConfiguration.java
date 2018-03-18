@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomePageControllerConfiguration {
   
   private static final Logger logger = LoggerFactory.getLogger(HomePageControllerConfiguration.class);
+  
 
   private final String homepage;
   
   public HomePageControllerConfiguration(ZkProperties zkProperties) {
     homepage = zkProperties.getHomepage();
-    logger.info(String.format("HomePageController created with %s as your homepage.", homepage));
+    logger.debug("HomePageController created with {} as your homepage.", homepage);
   }
 
   @GetMapping("/")

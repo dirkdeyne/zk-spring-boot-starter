@@ -20,10 +20,14 @@ public class AutoViewMappingControllerConfiguration {
 
   private static final String AUTOMAPPING = "/view/**";
   
+  public AutoViewMappingControllerConfiguration(ZkProperties zkProperties) {
+    // TODO Auto-generated constructor stub
+  }
+  
   @GetMapping(AUTOMAPPING)
   public String autoViewmapping(HttpServletRequest request) {
     String page = request.getRequestURI().replaceAll("/view", "");
-    logger.info("auto mapping to view: " + page);
+    logger.debug("auto mapping to view: " + page);
     return page;
   }
   
