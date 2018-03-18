@@ -4,24 +4,18 @@ import javax.validation.constraints.Pattern;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
-import org.zkoss.web.util.resource.ClassWebResource;
 
 @ConfigurationProperties(prefix = "zk")
 @Validated
 public class ZkProperties {
-  private static final String UPDATE_SERVLET_MAPPING = "/zkau"; //servlet mapping for ZK's update servlet
-  private static final String updateUri= UPDATE_SERVLET_MAPPING +"/*" ;
-  
-  private static final String WEB_CONFIG_BASE = "/WEB-INF";
-  private static final String JAR_CONFIG_BASE = UPDATE_SERVLET_MAPPING + ClassWebResource.PATH_PREFIX;
   
   /**
+   * You probably should not change this value.
    * 
-   * 
-   * Default is jar
+   * Default value /zkau/*
    */
-  @Pattern(regexp="(jar)|(war)")
-  private String config = "jar";
+  @Pattern(regexp = "/[a-z]+/\\*")
+  private String updateUri = "/zkau/*";
 
   /**
    * @TODO needs additional configuration
@@ -39,16 +33,12 @@ public class ZkProperties {
   private Boolean viewreloverEnabled = true;
   
   /**
-   * Base-folder location of your pages.
-   * The final prefix is determined depending on zk.config (application's configuration)
-   * example: 
-   *   - a request to view `hello` and `zk.viewresolver-prefix = pages` 
-   *     will result in /zkau/web/pages/hello.zul
-   *  
-   *   - a request to view `hello` and `zk.viewresolver-prefix = pages` and `zk-config = war`
-   *     will result in /WEB-INF/pages/hello.zul
+   * Prefix used by viewresolver.
+   * 
+   * Default value /zkau/web/
    */
-  private String viewresolverPrefix = "";
+  @Pattern(regexp = "(/)||(/([a-z]+/)+)", message="should start and end with a / like /zkau/web/")
+  private String viewresolverPrefix = "/zkau/web/";
   
   /**
    * Suffix used by viewresolver.
@@ -81,16 +71,12 @@ public class ZkProperties {
    */
   private Boolean richletEnabled = false;
 
-  public String getConfig() {
-    return config;
-  }
-  
-  public void setConfig(String config) {
-    this.config = config;
-  }
-  
   public String getUpdateUri() {
     return updateUri;
+  }
+
+  public void setUpdateUri(String updateUri) {
+    this.updateUri = updateUri;
   }
 
   public String getRichletUri() {
@@ -102,18 +88,7 @@ public class ZkProperties {
   }
 
   public String getViewresolverPrefix() {
-    return resolvePrefix();
-  }
-  
-  private String resolvePrefix() {
-    String prefix = viewresolverPrefix;
-    if (!prefix.startsWith("/")) {
-      prefix = "/" + prefix;
-    }
-    if (!prefix.endsWith("/")) {
-      prefix += "/";
-    }
-    return config.equals("jar") ? JAR_CONFIG_BASE + prefix: WEB_CONFIG_BASE + prefix;
+    return viewresolverPrefix;
   }
 
   public void setViewresolverPrefix(String viewresolverPrefix) {
