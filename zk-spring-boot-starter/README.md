@@ -10,7 +10,7 @@
 - [x] setup ZK EE ([zkmax](https://www.zkoss.org/download/zk?ee) is on the class-path)
 - [x] configurable home-page (`zk.homepage = your-home-page`) 
 - [x] auto view controller (when `zk.view-automapping = true` you can use `view/your-zul-name` )
-- [ ] ....
+- [x] support for classic web application setup: *make war not jar* ... sorry [@starbuxman](https://twitter.com/starbuxman) :)
 
 ## References (Build with):
 - [ZK](https://www.zkoss.org) - ZK framework
