@@ -1,5 +1,5 @@
 # ZK ~ SPRING BOOT
-[![Travis CI Build Status Badge](https://travis-ci.org/dirkdeyne/zk-spring-boot-starter.svg?branch=master)](https://travis-ci.org/dirkdeyne/zk-spring-boot-starter)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](/LICENCE) [![Travis CI Build Status Badge](https://travis-ci.org/dirkdeyne/zk-spring-boot-starter.svg?branch=master)](https://travis-ci.org/dirkdeyne/zk-spring-boot-starter)
 
 *(Inspired by [zk-spring-boot demo](https://github.com/zkoss-demo/zk-spring-boot) and [Create and Run Your First ZK Application with Spring Boot](https://www.zkoss.org/wiki/ZK%20Installation%20Guide/Quick%20Start/Create%20and%20Run%20Your%20First%20ZK%20Application%20with%20Spring%20Boot))*
 
