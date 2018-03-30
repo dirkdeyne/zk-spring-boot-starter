@@ -38,12 +38,13 @@ Look at the interaction between Spring MVC and ZK MVVM
 
 ```xml
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="~./common/page_template.zul"?>
-<?style href="~./css/custom-style.css" type="text/css" ?>
 <zk>
+	<style src="/css/custom-style.css"/>
 	<include src="~./common/menu.zul" />
 </zk>	
 ```
-when we use `Composition`, import `css`-file or want to `include` other resources, we just use ZK's default way of loading resources from the class-path.
+- when we use `Composition` or want to `include` other resources, we just use ZK's default way of loading web resources from the class-path. ZK maps `~./xyz` to `src/main/resource/web/xyz`  
+- we can still refer to static resources like style-sheets, images, ... Spring boot maps `/xyz` to `src/main/resources/static/xyz`
 
 ----
 
