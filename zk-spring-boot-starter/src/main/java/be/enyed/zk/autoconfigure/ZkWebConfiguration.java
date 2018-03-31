@@ -29,18 +29,17 @@ public class ZkWebConfiguration implements WebMvcConfigurer {
   }
   
   protected ViewResolver zkViewResolver() {
-    String prefix = zkProperties.getViewresolverPrefix();
-    String suffix = zkProperties.getViewresolverSuffix();
-    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-    resolver.setPrefix(prefix);
-    resolver.setSuffix(suffix);
-    resolver.setOrder(InternalResourceViewResolver.LOWEST_PRECEDENCE);
-    logger.debug(String.format("InternalResourceViewResolver to %syour_view_name%s, "
-        + "example using default settings: "
-        + "viewname 'common/about' will be resolved to '/zkau/web/common/about.zul' "
-        + "that will look for the file /src/main/resources/web/common/about.zul"
-        ,prefix,suffix,suffix));
-    return resolver;
-  }
-  
+	    String prefix = zkProperties.getViewresolverPrefix();
+	    String suffix = zkProperties.getViewresolverSuffix();
+	    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+	    resolver.setPrefix(prefix);
+	    resolver.setSuffix(suffix);
+	    resolver.setOrder(InternalResourceViewResolver.LOWEST_PRECEDENCE);
+	    logger.info(String.format("InternalResourceViewResolver to %syour_view_name%s, "
+	        + "so a viewname 'common/about' will be resolved to '%scommon/about%s' "
+	        + "and we look for the file %scommon/about%s"
+	        ,prefix, suffix, prefix, suffix, zkProperties.getViewresolverPrefix(), suffix));
+	    return resolver;
+	  }
+	    
 }
