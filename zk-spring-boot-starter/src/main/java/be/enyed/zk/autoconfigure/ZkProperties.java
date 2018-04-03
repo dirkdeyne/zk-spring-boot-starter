@@ -9,6 +9,9 @@ import org.zkoss.web.util.resource.ClassWebResource;
 @ConfigurationProperties(prefix = "zk")
 @Validated
 public class ZkProperties {
+  
+  private static final String JAR_RESOURCE_LOCATION = "src/main/resources";
+  
   private static final String UPDATE_SERVLET_MAPPING = "/zkau"; //servlet mapping for ZK's update servlet
   private static final String updateUri= UPDATE_SERVLET_MAPPING +"/*" ;
   
@@ -80,7 +83,12 @@ public class ZkProperties {
    * Default value false
    */
   private Boolean richletEnabled = false;
-
+  
+  public String getRealPath(String path) {
+    String zkau = getViewresolverPrefix() + path + getViewresolverSuffix();
+    return zkau.replaceFirst(UPDATE_SERVLET_MAPPING, JAR_RESOURCE_LOCATION);
+  }
+  
   public String getConfig() {
     return config;
   }

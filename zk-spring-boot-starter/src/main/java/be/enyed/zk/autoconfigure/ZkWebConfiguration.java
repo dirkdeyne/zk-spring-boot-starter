@@ -37,8 +37,8 @@ public class ZkWebConfiguration implements WebMvcConfigurer {
 	    resolver.setOrder(InternalResourceViewResolver.LOWEST_PRECEDENCE);
 	    logger.info(String.format("InternalResourceViewResolver to %syour_view_name%s, "
 	        + "so a viewname 'common/about' will be resolved to '%scommon/about%s' "
-	        + "and we look for the file %scommon/about%s"
-	        ,prefix, suffix, prefix, suffix, zkProperties.getViewresolverPrefix(), suffix));
+	        + "and we look for the file %s"
+	        ,prefix, suffix, prefix, suffix, zkProperties.getRealPath("common/about")));
 	    return resolver;
 	  }
 	    

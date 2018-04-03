@@ -21,7 +21,7 @@ public class HomePageControllerConfiguration {
   
   public HomePageControllerConfiguration(ZkProperties zkProperties) {
     homepage = zkProperties.getHomepage();
-    logger.debug("HomePageController created with {} as your homepage.", homepage);
+    logger.info(String .format("HomePageController created with '%s' as your homepage (resolved to '%s').", homepage, zkProperties.getRealPath(homepage)));
   }
 
   @GetMapping("/")
