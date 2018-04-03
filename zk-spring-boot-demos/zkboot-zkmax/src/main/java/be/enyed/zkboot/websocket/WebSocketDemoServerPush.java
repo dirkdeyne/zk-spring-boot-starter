@@ -5,14 +5,11 @@ import org.zkoss.chart.Point;
 import org.zkoss.lang.Threads;
 import org.zkoss.zk.ui.Desktop;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zul.Messagebox;
 
-import java.util.concurrent.TimeUnit;
-
 /**
- * Created by wenninghsu on 14/06/2017.
+ * origin:
+ * https://github.com/zkoss-demo/zkwebsocket-demo/blob/master/src/main/java/org/zkoss/blog/demo/zkwebsocketdemo/WebSocketDemoServerPush.java
  */
 public class WebSocketDemoServerPush {
 
@@ -36,15 +33,12 @@ public class WebSocketDemoServerPush {
       _chart = chart;
       _desktop = chart.getDesktop();
     }
+    @Override
     public void run() {
       while (_desktop.isServerPushEnabled()) {
         final long l = System.currentTimeMillis();
         Executions.schedule(_desktop,
-            new EventListener() {
-              public void onEvent(Event event) {
-                _chart.getSeries().addPoint(new Point(l, Math.random()), true, true, true);
-              }
-            }, null);
+            event -> _chart.getSeries().addPoint(new Point(l, Math.random()), true, true, true), null);
         Threads.sleep(1000);
       }
     }
