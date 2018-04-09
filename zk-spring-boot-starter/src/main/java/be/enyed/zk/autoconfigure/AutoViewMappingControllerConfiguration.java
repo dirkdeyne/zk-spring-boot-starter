@@ -10,6 +10,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Controller that handles common pages automatically.
+ * Enabled when property zk.view-automapping is set to true.
+ * 
+ * @author Dirk
+ */
 @Configuration
 @Controller
 @ConditionalOnProperty(prefix="zk",name="view-automapping")
@@ -18,11 +24,8 @@ public class AutoViewMappingControllerConfiguration {
  
   private static final Logger logger = LoggerFactory.getLogger(AutoViewMappingControllerConfiguration.class);
 
-  private static final String AUTOMAPPING = "/view/**";
+  private static final String AUTOMAPPING = "view/**";
   
-  public AutoViewMappingControllerConfiguration(ZkProperties zkProperties) {
-    // TODO Auto-generated constructor stub
-  }
   
   @GetMapping(AUTOMAPPING)
   public String autoViewmapping(HttpServletRequest request) {

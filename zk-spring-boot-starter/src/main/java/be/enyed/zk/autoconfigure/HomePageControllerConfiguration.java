@@ -8,6 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Controller that maps the root to the configured home-page.
+ * Allows usage of the Spring MVC Redirect mechanism ( 'forward:' and 'redirect:' )
+ * Enabled when property zk.homepage has a value.
+ * 
+ * @author Dirk
+ */
 @Configuration
 @Controller
 @ConditionalOnProperty(prefix="zk", name="homepage")
