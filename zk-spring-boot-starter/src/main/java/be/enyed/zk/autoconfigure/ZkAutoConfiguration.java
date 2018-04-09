@@ -16,6 +16,17 @@ import org.zkoss.zk.ui.http.DHtmlLayoutServlet;
 import org.zkoss.zk.ui.http.HttpSessionListener;
 import org.zkoss.zk.ui.http.RichletFilter;
 
+/**
+ * Auto-configuration of ZK based on @ZkProperties
+ * 
+ * Registration of @DHtmlUpdateServlet
+ * Provide a @HttpSessionListener
+ * When configured as war: registration of @DHtmlLayoutServlet
+ * When richlet is enabled: registration of @RichletFilter
+ * 
+ * 
+ * @author Dirk
+ */
 @Configuration
 @EnableConfigurationProperties({ZkProperties.class})
 public class ZkAutoConfiguration {
