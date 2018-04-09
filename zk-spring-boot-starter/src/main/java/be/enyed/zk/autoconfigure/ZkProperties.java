@@ -2,25 +2,36 @@ package be.enyed.zk.autoconfigure;
 
 import javax.validation.constraints.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
 import org.zkoss.web.util.resource.ClassWebResource;
 
+/**
+ * Configuration properties for ZK
+ * 
+ * @author Dirk
+ *
+ */
 @ConfigurationProperties(prefix = "zk")
 @Validated
 public class ZkProperties {
   
-  private static final String JAR_RESOURCE_LOCATION = "src/main/resources";
+  private static final Logger logger = LoggerFactory.getLogger(ZkProperties.class);
+
   
-  private static final String UPDATE_SERVLET_MAPPING = "/zkau"; //servlet mapping for ZK's update servlet
-  private static final String updateUri= UPDATE_SERVLET_MAPPING +"/*" ;
+  public static final String AUTOMAPPING_VIEW_PREFIX= "/view/**";
+
+  public static final String JAR_RESOURCE_LOCATION = "src/main/resources";
   
-  private static final String WEB_CONFIG_BASE = "/WEB-INF";
-  private static final String JAR_CONFIG_BASE = UPDATE_SERVLET_MAPPING + ClassWebResource.PATH_PREFIX;
+  public static final String UPDATE_SERVLET_MAPPING = "/zkau"; //servlet mapping for ZK's update servlet
+  public static final String UPDATE_URI = UPDATE_SERVLET_MAPPING +"/*" ;
+  
+  public static final String WEB_CONFIG_BASE = "/WEB-INF";
+  public static final String JAR_CONFIG_BASE = UPDATE_SERVLET_MAPPING + ClassWebResource.PATH_PREFIX;
   
   /**
-   * 
-   * 
    * Default is jar
    */
   @Pattern(regexp="(jar)|(war)")
@@ -65,7 +76,7 @@ public class ZkProperties {
    * No value set, so you need to provide it yourself.
    * When set a @Controller will map a root requests to your homepage.
    * But you are allowed to use the spring-mvc mechanism 
-   * to redirect ('redirect:/hompage') or forward ('forward:/homepage')
+   * to redirect ('redirect:homepage') or forward ('forward:homepage')
    */
   private String homepage;  
   
@@ -75,7 +86,7 @@ public class ZkProperties {
    * 
    * Default value false
    */
-  private Boolean viewAutomapping = false;
+  private Boolean viewAutomappingEnabled = false;
   
   /**
    * Disable/Enable Richlets.
@@ -85,7 +96,11 @@ public class ZkProperties {
   private Boolean richletEnabled = false;
   
   public String getRealPath(String path) {
-    String zkau = getViewresolverPrefix() + path + getViewresolverSuffix();
+    String page = path;
+    if(page.startsWith("forward:") || page.startsWith("redirect:")) {
+      page = page.replaceFirst("(forward:|redirect:)", "");
+    }
+    String zkau = getViewresolverPrefix() + page + getViewresolverSuffix();
     return zkau.replaceFirst(UPDATE_SERVLET_MAPPING, JAR_RESOURCE_LOCATION);
   }
   
@@ -98,7 +113,7 @@ public class ZkProperties {
   }
   
   public String getUpdateUri() {
-    return updateUri;
+    return UPDATE_URI;
   }
 
   public String getRichletUri() {
@@ -149,6 +164,16 @@ public class ZkProperties {
   }
   
   public void setHomepage(String homepage) {
+    if(homepage.startsWith("/") || homepage.startsWith("redirect:/") || homepage.startsWith("forward:/"))  {
+      String correction = homepage.replaceFirst("/", "");
+      logger.warn(String.format("zk.homepage should not start with '/', changed homepage-property from '%s' to '%s'", homepage, correction));
+      homepage = correction;
+    }
+    if(homepage.endsWith(".zul") || homepage.endsWith(".zhtml")) {
+      String correction = homepage.substring(0, homepage.lastIndexOf("."));
+      logger.warn(String.format("zk.homepage should not end with a '.zul' or '.zhtml',changed homepage-property from '%s' to '%s'", homepage, correction));
+      homepage = correction;
+    }
     this.homepage = homepage;
   }
   
@@ -159,12 +184,12 @@ public class ZkProperties {
   public void setViewreloverEnabled(Boolean viewreloverEnabled) {
     this.viewreloverEnabled = viewreloverEnabled;
   }
-  
-  public Boolean getViewAutomapping() {
-    return viewAutomapping;
+
+  public Boolean getViewAutomappingEnabled() {
+    return viewAutomappingEnabled;
   }
   
-  public void setViewAutomapping(Boolean viewAutomapping) {
-    this.viewAutomapping = viewAutomapping;
+  public void setViewAutomappingEnabled(Boolean viewAutomappingEnabled) {
+    this.viewAutomappingEnabled = viewAutomappingEnabled;
   }
 }

@@ -9,6 +9,12 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/**
+ * Auto-configure a @ViewResolver when not disabled in @ZkProperties.
+ * 
+ * @author Dirk
+ *
+ */
 @Configuration
 @EnableConfigurationProperties({ZkProperties.class})
 public class ZkWebConfiguration implements WebMvcConfigurer {
@@ -25,7 +31,9 @@ public class ZkWebConfiguration implements WebMvcConfigurer {
   
   @Override
   public void configureViewResolvers(ViewResolverRegistry registry) {
-    registry.viewResolver(zkViewResolver());
+    if(zkProperties.getViewreloverEnabled()) {
+      registry.viewResolver(zkViewResolver());
+    }
   }
   
   protected ViewResolver zkViewResolver() {
@@ -38,8 +46,8 @@ public class ZkWebConfiguration implements WebMvcConfigurer {
 	    logger.info(String.format("InternalResourceViewResolver to %syour_view_name%s, "
 	        + "so a viewname 'common/about' will be resolved to '%scommon/about%s' "
 	        + "and we look for the file %s"
-	        ,prefix, suffix, prefix, suffix, zkProperties.getRealPath("common/about")));
+	        , prefix, suffix, prefix, suffix, zkProperties.getRealPath("common/about")));
 	    return resolver;
-	  }
+	}
 	    
 }
