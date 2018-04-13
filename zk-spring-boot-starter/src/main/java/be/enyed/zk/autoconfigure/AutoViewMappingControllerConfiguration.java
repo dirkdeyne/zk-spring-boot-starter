@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Configuration
 @Controller
-@ConditionalOnProperty(prefix="zk",name="view-automapping")
+@ConditionalOnProperty(prefix="zk",name="view-automapping-enabled")
 @EnableConfigurationProperties({ZkProperties.class})
 public class AutoViewMappingControllerConfiguration {
  
