@@ -1,3 +1,5 @@
+__now available on [zkoss/zkspringboot](https://github.com/zkoss/zkspringboot)!__
+
 # ZK ~ SPRING BOOT
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](/LICENCE) [![Travis CI Build Status Badge](https://travis-ci.org/dirkdeyne/zk-spring-boot-starter.svg?branch=master)](https://travis-ci.org/dirkdeyne/zk-spring-boot-starter)
 
